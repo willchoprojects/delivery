@@ -11,9 +11,11 @@ public class InputManager : MonoBehaviour
 
     private string State { get; set; } = "playerMovement";
 
-    private void FixedUpdate() {
-        if (State == "playerMovement") {
-            EventBroadcaster.TriggerEvent(EventBroadcaster.EventNames.MoveCreature, new Dictionary<string, object> {
+    private void FixedUpdate()
+    {
+        if (State == "playerMovement")
+        {
+            EventBroadcaster.TriggerEvent(EventBroadcaster.EventNames.CreatureMove, new Dictionary<string, object> {
                 { KeyCreatureType, "player" },
                 { KeyDisplacementVector, CalculateMovementVector() * Time.fixedDeltaTime },
             });
@@ -65,7 +67,8 @@ public class InputManager : MonoBehaviour
 
     private float GetDirectionalVelocity(string direction, float speed, float angle)
     {
-        switch(direction) {
+        switch(direction)
+        {
             case HorizontalDirectionString: return (float)(speed * Math.Cos(angle));
             case VerticalDirectionString: return (float)(speed * Math.Sin(angle));
             default: return 0;

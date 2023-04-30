@@ -6,7 +6,8 @@ public class EventBroadcaster : MonoBehaviour
 {
     public enum EventNames
     {
-        MoveCreature,
+        CreaturePositionChanged,
+        CreatureMove,
     }
 
     private Dictionary<EventNames, Action<Dictionary<string, object>>> eventDictionary;
