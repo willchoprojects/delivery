@@ -52,7 +52,7 @@ public class TextManager : MonoBehaviour
     private void TimeChangeActions(Dictionary<string, object> args)
     {
         if (IsActive) {
-            TimerText.text = $"Time: {(float)args[TimerManager.KeyTime]}";
+            TimerText.text = $"Time: {Mathf.RoundToInt((float)args[TimerManager.KeyTime])}";
         }
     }
 }

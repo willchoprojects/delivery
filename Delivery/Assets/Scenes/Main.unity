@@ -5031,8 +5031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73013aaae17054d45ba88a94ea4d1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 30
+  Time: 15
   TimeDeliver: 3
+  TimeElapsed: 0
 --- !u!4 &66098193
 Transform:
   m_ObjectHideFlags: 0
@@ -5104,7 +5105,7 @@ GameObject:
   - component: {fileID: 186867609}
   - component: {fileID: 186867608}
   m_Layer: 5
-  m_Name: TimeText
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5127,8 +5128,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000013351, y: 15}
+  m_SizeDelta: {x: 928.0398, y: 161.564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &186867608
 MonoBehaviour:
@@ -5150,10 +5151,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: 'Game Over
+
+    Press Space to Play Again'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
+  m_sharedMaterial: {fileID: 3504234981744224071, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5177,14 +5180,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5441,7 +5444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 71508499285661395, guid: a41726ed538ef4bc5af6dec15c18bfa2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 71508499285661395, guid: a41726ed538ef4bc5af6dec15c18bfa2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5583,7 +5586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: -10}
+  m_LocalPosition: {x: -2, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5701,7 +5704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576404969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: -10}
+  m_LocalPosition: {x: -2, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5862,7 +5865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680817588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5918,8 +5921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351.85, y: 189.2}
-  m_SizeDelta: {x: 258.2944, y: 385.7938}
+  m_AnchoredPosition: {x: -640, y: 370}
+  m_SizeDelta: {x: 530, y: 670}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829710685
 MonoBehaviour:
@@ -6507,8 +6510,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.8499756, y: 28.400024}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 38, y: 42}
+  m_SizeDelta: {x: 480.8221, y: 71.1882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1574986810
 MonoBehaviour:
@@ -6532,8 +6535,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Time: 30'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
+  m_sharedMaterial: {fileID: 3504234981744224071, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6557,8 +6560,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6681,8 +6684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -160}
-  m_SizeDelta: {x: 500, y: 480}
+  m_AnchoredPosition: {x: 0, y: -380}
+  m_SizeDelta: {x: 1069.518, y: 800.1897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1617274205
 GameObject:
@@ -6818,8 +6821,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.8499756, y: 28.400024}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 63, y: -0.000017166}
+  m_SizeDelta: {x: 722.2631, y: 173.8637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834521734
 MonoBehaviour:
@@ -6841,10 +6844,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instructions Here
+  m_text: "Deliver the Pandas \nto the Bamboo"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
+  m_sharedMaterial: {fileID: 3504234981744224071, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6868,8 +6871,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6947,8 +6950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383021f34e095498b9ee942e9218f9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnCooldownTime: 5
-  creatureMass: 0.01
+  SpawnCooldownTime: 2.5
+  creatureMass: 0.15
   GridManager: {fileID: 2075460234}
   creatureTemplate: {fileID: 71508499285661396, guid: a41726ed538ef4bc5af6dec15c18bfa2, type: 3}
   player: {fileID: 1065906862}
@@ -7002,8 +7005,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.8499756, y: -21.599976}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 38, y: -19.07951}
+  m_SizeDelta: {x: 480.8221, y: 71.1882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891234593
 MonoBehaviour:
@@ -7027,8 +7030,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Pandas: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
+  m_sharedMaterial: {fileID: 3504234981744224071, guid: c915ec7f372ae48949a80f273dc0503d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7052,8 +7055,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10025,8 +10028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 351.85, y: 189.2}
-  m_SizeDelta: {x: 258.2944, y: 385.7938}
+  m_AnchoredPosition: {x: 580, y: 370}
+  m_SizeDelta: {x: 710, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124002430
 MonoBehaviour:

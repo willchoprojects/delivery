@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CreatureManager : MonoBehaviour
 {
-    [SerializeField] public float SpawnCooldownTime = 5.0f;
-    [SerializeField] public float creatureMass = 0.01f;
+    [SerializeField] public float SpawnCooldownTime = 2.5f;
+    [SerializeField] public float creatureMass = 0.15f;
 
     [SerializeField] GridManager GridManager;
     [SerializeField] GameObject creatureTemplate;
     [SerializeField] GameObject player;
 
+    private int NumSpawned = 0;
     private bool IsSpawning = true;
     private bool IsActive = true;
     private IEnumerator spawnCooldownRoutine = null;
@@ -36,6 +37,7 @@ public class CreatureManager : MonoBehaviour
 
     private void SpawnCreature()
     {
+        NumSpawned += 1;
         GameObject creature = Object.Instantiate(creatureTemplate);
         creature.transform.position = GridManager.GetRandomWallCoordinate();
         creature.GetComponent<Rigidbody2D>().mass = creatureMass;
@@ -49,7 +51,7 @@ public class CreatureManager : MonoBehaviour
     {
         IsSpawning = false;
 
-        yield return new WaitForSeconds(SpawnCooldownTime);
+        yield return new WaitForSeconds(GetSpawnCooldownTime());
 
         IsSpawning = true;
 
@@ -60,5 +62,24 @@ public class CreatureManager : MonoBehaviour
     {
         IsActive = false;
         spawnCooldownRoutine = null;
+    }
+
+    private float GetSpawnCooldownTime() {
+        if (NumSpawned > 100) {
+            return SpawnCooldownTime - 2.4f;
+        }
+        if (NumSpawned > 50) {
+            return SpawnCooldownTime - 2f;
+        }
+        if (NumSpawned > 25) {
+            return SpawnCooldownTime - 1.5f;
+        }
+        if (NumSpawned > 15) {
+            return SpawnCooldownTime - 1.25f;
+        }
+        if (NumSpawned > 10) {
+            return SpawnCooldownTime - 1f;
+        }
+        return SpawnCooldownTime;
     }
 }

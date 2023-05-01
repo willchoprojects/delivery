@@ -10,6 +10,7 @@ public class TimerManager : MonoBehaviour
     [SerializeField] public float TimeDeliver = 3f;
     private IEnumerator timerRoutine = null;
     private bool IsActive = true;
+    public float TimeElapsed = 0f;
 
     private void OnEnable()
     {
@@ -40,7 +41,7 @@ public class TimerManager : MonoBehaviour
 
     private void CreatureDeliverActions(Dictionary<string, object> args)
     {
-        Time += TimeDeliver;
+        Time += GetTimeDeliver();
         EventBroadcaster.TriggerEvent(EventBroadcaster.EventNames.TimeChange, new Dictionary<string, object>() {
             { KeyTime, Time },
         });
@@ -51,6 +52,7 @@ public class TimerManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Time -= 1f;
+        TimeElapsed += 1f;
         EventBroadcaster.TriggerEvent(EventBroadcaster.EventNames.TimeChange, new Dictionary<string, object>() {
             { KeyTime, Time },
         });
@@ -62,5 +64,21 @@ public class TimerManager : MonoBehaviour
     private void GameOverActions(Dictionary<string, object> args)
     {
         IsActive = false;
+    }
+
+    private float GetTimeDeliver() {
+        if (TimeElapsed > 60) {
+            return TimeDeliver - 2.5f;
+        }
+        if (TimeElapsed > 45) {
+            return TimeDeliver - 2f;
+        }
+        if (TimeElapsed > 30) {
+            return TimeDeliver - 1.5f;
+        }
+        if (TimeElapsed > 15) {
+            return TimeDeliver - 1f;
+        }
+        return TimeDeliver;
     }
 }

@@ -144,12 +144,12 @@ MonoBehaviour:
   rb: {fileID: 71508499285661392}
   spriteRenderer: {fileID: 71508499285661393}
   animator: {fileID: 71508499285661398}
-  ActivationTime: 3
-  DespawnTime: 10
+  ActivationTime: 1
+  DespawnTime: 6
   GridManager: {fileID: 0}
-  collisionRadius: 0.7
-  approachSpeed: 8
-  moveSpeed: 5
+  collisionRadius: 0.8
+  approachSpeed: 6
+  moveSpeed: 6
   creatureType: dog
   player: {fileID: 0}
 --- !u!70 &6994965936778300186
@@ -166,5 +166,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.6, y: 0.6}
   m_Direction: 0
