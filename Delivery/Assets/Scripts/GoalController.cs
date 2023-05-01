@@ -8,6 +8,7 @@ public class GoalController : MonoBehaviour
     {
         if (otherCollider.CompareTag("Creature"))
         {
+            EventBroadcaster.TriggerEvent(EventBroadcaster.EventNames.CreatureDeliver);
             Destroy(otherCollider.gameObject);
         }
     }

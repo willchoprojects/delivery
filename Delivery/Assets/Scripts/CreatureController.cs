@@ -120,6 +120,7 @@ public class CreatureController : MonoBehaviour
     {
         IsActive = false;
         Vector2 teleportationPosition = GridManager.GetWorldPosition(GridManager.GetTilePosition(player));
+        EventBroadcaster.TriggerEvent(EventBroadcaster.EventNames.CreatureAlert);
 
         yield return new WaitForSeconds(ActivationTime);
 

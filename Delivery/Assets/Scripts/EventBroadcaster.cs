@@ -6,6 +6,8 @@ public class EventBroadcaster : MonoBehaviour
 {
     public enum EventNames
     {
+        CreatureAlert,
+        CreatureDeliver,
         CreaturePositionChanged,
         CreatureMove,
     }
