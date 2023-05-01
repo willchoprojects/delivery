@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -10,6 +12,17 @@ public class InputManager : MonoBehaviour
     public const string KeyDisplacementVector = "displacementVector";
 
     private string State { get; set; } = "playerMovement";
+    private bool IsReadyForRestart = false;
+
+    private void OnEnable()
+    {
+        EventBroadcaster.StartListening(EventBroadcaster.EventNames.GameOver, GameOverActions);
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.StopListening(EventBroadcaster.EventNames.GameOver, GameOverActions);
+    }
 
     private void FixedUpdate()
     {
@@ -19,6 +32,10 @@ public class InputManager : MonoBehaviour
                 { KeyCreatureType, "player" },
                 { KeyDisplacementVector, CalculateMovementVector() * Time.fixedDeltaTime },
             });
+        }
+        if (State == "gameOver" && IsReadyForRestart && (CalculateMovementVector().magnitude > 0 || Input.GetKeyDown("space")))
+        {
+            SceneManager.LoadScene("Main");
         }
     }
 
@@ -73,5 +90,20 @@ public class InputManager : MonoBehaviour
             case VerticalDirectionString: return (float)(speed * Math.Sin(angle));
             default: return 0;
         }
+    }
+
+    private void GameOverActions(Dictionary<string, object> args)
+    {
+        State = "gameOver";
+        StartCoroutine(CooldownCoroutine());
+    }
+
+    private IEnumerator CooldownCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+
+        IsReadyForRestart = true;
+
+        yield return null;
     }
 }

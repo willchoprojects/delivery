@@ -12,13 +12,25 @@ public class CreatureManager : MonoBehaviour
     [SerializeField] GameObject player;
 
     private bool IsSpawning = true;
+    private bool IsActive = true;
+    private IEnumerator spawnCooldownRoutine = null;
+
+    private void OnEnable()
+    {
+        EventBroadcaster.StartListening(EventBroadcaster.EventNames.GameOver, GameOverActions);
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.StopListening(EventBroadcaster.EventNames.GameOver, GameOverActions);
+    }
 
     private void FixedUpdate()
     {
-        if (IsSpawning) {
+        if (IsSpawning && IsActive) {
             SpawnCreature();
-
-            StartCoroutine(SpawnCooldownCoroutine());
+            spawnCooldownRoutine = SpawnCooldownCoroutine();
+            StartCoroutine(spawnCooldownRoutine);
         }
     }
 
@@ -42,5 +54,11 @@ public class CreatureManager : MonoBehaviour
         IsSpawning = true;
 
         yield return null;
+    }
+
+    private void GameOverActions(Dictionary<string, object> args)
+    {
+        IsActive = false;
+        spawnCooldownRoutine = null;
     }
 }

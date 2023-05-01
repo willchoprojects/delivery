@@ -41,12 +41,14 @@ public class CreatureController : MonoBehaviour
 
     private void OnEnable()
     {
+        EventBroadcaster.StartListening(EventBroadcaster.EventNames.GameOver, GameOverActions);
         EventBroadcaster.StartListening(EventBroadcaster.EventNames.CreatureMove, CreatureMoveActions);
         EventBroadcaster.StartListening(EventBroadcaster.EventNames.CreaturePositionChanged, CreaturePositionChangedActions);
     }
 
     private void OnDisable()
     {
+        EventBroadcaster.StopListening(EventBroadcaster.EventNames.GameOver, GameOverActions);
         EventBroadcaster.StopListening(EventBroadcaster.EventNames.CreatureMove, CreatureMoveActions);
         EventBroadcaster.StopListening(EventBroadcaster.EventNames.CreaturePositionChanged, CreaturePositionChangedActions);
     }
@@ -98,6 +100,13 @@ public class CreatureController : MonoBehaviour
                 { InputManager.KeyCreatureType, creatureType }
             });
         }
+    }
+
+    private void GameOverActions(Dictionary<string, object> args)
+    {
+        IsActive = false;
+        activationCoroutine = null;
+        despawnCoroutine = null;
     }
 
     private void CreatureMoveActions(Dictionary<string, object> args)

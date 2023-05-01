@@ -10,6 +10,8 @@ public class EventBroadcaster : MonoBehaviour
         CreatureDeliver,
         CreaturePositionChanged,
         CreatureMove,
+        GameOver,
+        TimeChange,
     }
 
     private Dictionary<EventNames, Action<Dictionary<string, object>>> eventDictionary;
